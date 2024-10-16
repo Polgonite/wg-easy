@@ -120,7 +120,10 @@ PostDown = ${WG_POST_DOWN}
 [Peer]
 PublicKey = ${client.publicKey}
 ${client.preSharedKey ? `PresharedKey = ${client.preSharedKey}\n` : ''
-}AllowedIPs = ${client.address}/32
+}AllowedIPs = ${client.address}/32`;
+
+  if (client.endpoint) {
+    result += `
 PersistentKeepalive = 0
 Endpoint = ${client.endpoint}`;
     }
