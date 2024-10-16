@@ -121,6 +121,8 @@ PostDown = ${WG_POST_DOWN}
 PublicKey = ${client.publicKey}
 ${client.preSharedKey ? `PresharedKey = ${client.preSharedKey}\n` : ''
 }AllowedIPs = ${client.address}/32`;
+PersistentKeepalive = 0
+Endpoint = ${client.endpoint}
     }
 
     debug('Config saving...');
@@ -156,11 +158,11 @@ ${client.preSharedKey ? `PresharedKey = ${client.preSharedKey}\n` : ''
       oneTimeLink: client.oneTimeLink ?? null,
       oneTimeLinkExpiresAt: client.oneTimeLinkExpiresAt ?? null,
       downloadableConfig: 'privateKey' in client,
-      persistentKeepalive: null,
+      persistentKeepalive: client.persistentKeepalive ?? null,
       latestHandshakeAt: null,
       transferRx: null,
       transferTx: null,
-      endpoint: null,
+      endpoint: client.endpoint ?? null,
     }));
 
     // Loop WireGuard status
