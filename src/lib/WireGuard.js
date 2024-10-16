@@ -122,7 +122,7 @@ PublicKey = ${client.publicKey}
 ${client.preSharedKey ? `PresharedKey = ${client.preSharedKey}\n` : ''
 }AllowedIPs = ${client.address}/32`;
 PersistentKeepalive = 0
-Endpoint = ${client.endpoint}
+Endpoint = `${client.endpoint}`
     }
 
     debug('Config saving...');
